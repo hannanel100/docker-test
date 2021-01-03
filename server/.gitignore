@@ -125,3 +125,5 @@ dist
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+docker-test-300617-5bb4288ff907.json
