@@ -11,9 +11,10 @@ const Form = () => {
     e.preventDefault();
     setIsSubmitted(true);
     const formData = new FormData();
-
+    console.log(file)
     formData.append("file", file);
     try {
+      console.log(formData);
       const res = await axios.post("/upload", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
