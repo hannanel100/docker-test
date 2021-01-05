@@ -11,7 +11,6 @@ const Form = () => {
     e.preventDefault();
     setIsSubmitted(true);
     const formData = new FormData();
-    console.log(file)
     formData.append("file", file);
     try {
       console.log(formData);
@@ -20,8 +19,8 @@ const Form = () => {
           "Content-Type": "multipart/form-data",
         },
       });
-      const { fileName, filePath } = res.data;
-      setUploadedFile({ fileName, filePath });
+      const { fileName, msg } = res.data;
+      setUploadedFile({ fileName, msg });
     } catch (error) {
       if (error.response.status === 500) {
         console.log("There was a problem with the server");
@@ -60,10 +59,11 @@ const Form = () => {
         <div className="row mt-5">
           <div className="col-md-6 m-auto">
             <h3 className="text-center">{uploadedFile.fileName}</h3>
-            <img src={uploadedFile.filePath} style={{ width: "100%" }} />
+            {/* <img src={uploadedFile.filePath} style={{ width: "100%" }} /> */}
+            <p>{uploadedFile.msg}</p>
           </div>
         </div>
-      ) : null}
+      ) : <p>File not uploaded</p>}
     </>
   );
 };
