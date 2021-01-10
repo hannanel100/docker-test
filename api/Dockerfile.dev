@@ -1,0 +1,22 @@
+# FROM node:8.1.0-alpine
+
+# LABEL version="1.0"
+# LABEL description="This is the base docker image for the File uploader backend API."
+
+# WORKDIR /usr/src/api
+
+# # COPY ["package.json", "package-lock.json", "./"]
+# # RUN ls
+# # RUN npm install --production
+# # COPY . .
+
+# EXPOSE 5000
+
+FROM node:14
+WORKDIR /usr/src/api
+COPY package*.json ./
+RUN npm install
+COPY . .
+EXPOSE 5000
+
+CMD ["npm", "run", "serve"]
