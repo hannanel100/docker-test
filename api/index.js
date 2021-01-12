@@ -9,7 +9,7 @@ const PORT = 5000;
 let reqPath = path.join(__dirname, "./uploads/");
 console.log("reqpath: " + reqPath);
 //upload endpoint
-app.post("/upload", (req, res) => {
+app.post("/api/upload", (req, res) => {
   if (req.files === null) {
     return res.status(400).json({ msg: "No File Was Uploaded" });
   }

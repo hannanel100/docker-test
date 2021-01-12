@@ -5,7 +5,7 @@ services:
     build:
       context: ./app
     environment:
-      EXPRESS_HOST: backend
+      EXPRESS_HOST: api
 
   api:
     build:
